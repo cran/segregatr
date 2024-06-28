@@ -12,7 +12,37 @@ status](https://www.r-pkg.org/badges/version/segregatr)](https://CRAN.R-project.
 <!-- badges: end -->
 
 The goal of **segregatr** is to provide segregation analysis for
-clinical variant classification.
+clinical variant classification. Specifically it facilitates the
+calculation of full-likelihood Bayes factors (FLBs) in any medical
+pedigree.
+
+#### Citation
+
+If you use **segregatr** in a publication, please cite this paper:
+Ratajska et al. (2023). [The use of segregation analysis in
+interpretation of sequence variants in
+SMAD3](https://doi.org/10.1002/mgg3.2107).
+
+The paper includes applications of the package in real-life diagnostic
+cases.
+
+#### Shiny app
+
+A Shiny app **shinyseg** for clinical segregation analysis is now
+available! Check it out here:
+<https://chrcarrizosa.shinyapps.io/shinyseg/>.
+
+The app is based on **segregatr**, but offers a wealth of additional
+features:
+
+- interactive visualisations
+- complex disease modelling
+- sensitivity analysis
+- clinical interpretation for use in the ACMG-AMP framework
+
+For details, see Carrizosa et al. (2024): [shinyseg: a web application
+for flexible cosegregation and sensitivity
+analysis](https://doi.org/10.1093/bioinformatics/btae201).
 
 ## Installation
 
@@ -39,7 +69,7 @@ disease with 90% penetrance and phenocopy rate 1%. The parents have
 unknown affection status. All four brothers are shown to carry a
 candidate variant.
 
-<img src="man/figures/README-sibex-1.png" width="40%" style="display: block; margin: auto;" />
+<img src="man/figures/README-sibex-1.png" width="45%" style="display: block; margin: auto;" />
 
 We will use **segregatr** to analyse the co-segregation of the variant
 and the disease in this pedigree. Specifically we want to compute the
@@ -62,5 +92,6 @@ FLB(x, carriers = 3:6, affected = 3:6, unknown = 1:2,
 #> [1] 7.732161
 ```
 
-The resulting FLB score is less than 8, which unfortunately only
-indicates suggestive evidence for pathogenicity.
+The resulting FLB score amounts to *suggestive evidence* for
+pathogenicity, according to the thresholds suggested by [Jarvik and
+Browning (2016)](https://doi.org/10.1016/j.ajhg.2016.04.003).
